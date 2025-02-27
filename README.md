@@ -23,7 +23,7 @@ Universal Render Pipeline
 
 1. Replace FirstPersonController.cs in Assets/StarterAssets/FirstPersonController/Scripts with the one included here. (either this, either delete the one from StarterAssets)   
 2. Replace StarterAssetInputs.cs and StarterAssets.inputactions in Assets/StarterAssets/InputSystem with the ones included here. (either this, either also delete the one from StarterAssets)
-3. Adjust DragSpeed on DraggableObject component to your preference.
+3. Adjust DragSpeed, Max Pull Distance and Use Mirrored on DraggableObject component to your preference.
 
 
 
