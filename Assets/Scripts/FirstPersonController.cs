@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
 #endif
@@ -92,9 +93,20 @@ namespace StarterAssets
 
         private void OnEnable()
         {
-            EventManager.Instance.OnDragStarted += HandleDragStarted;
-			EventManager.Instance.OnDragEnded += HandleDragEnded;
+            StartCoroutine(SubscribeToEventManager());
         }
+
+		IEnumerator SubscribeToEventManager()
+		{
+			yield return new WaitUntil(() => EventManager.Instance != null);
+			EventManager.Instance.OnDragStarted += HandleDragStarted;
+			EventManager.Instance.OnDragEnded += HandleDragEnded;
+		}
+		private void OnDisable()
+		{
+			EventManager.Instance.OnDragStarted -= HandleDragStarted;
+			EventManager.Instance.OnDragEnded -= HandleDragEnded;
+		}
 		private void HandleDragStarted()
 		{
           active = false;

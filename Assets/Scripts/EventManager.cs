@@ -19,6 +19,8 @@ public class EventManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        SubscribeToDraggableEvents();
     }
 
 
